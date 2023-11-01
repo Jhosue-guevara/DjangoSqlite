@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <!-- Enlace a los archivos CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  
+
+    <!-- Menú de navegación -->
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'list_clientes' %}">Ver Clientes</a>
+        </li>
+    </ul>
+  <h1>Lista de Proveedores</h1>
+    <!-- Espacio entre el menú y el botón -->
+    <div class="mt-2">
+        <ul class="list-group">
+            {% for proveedor in proveedores %}
+                <li class="list-group-item">
+                    {{ proveedor.nombre }} - {{ proveedor.telefono }} - {{ proveedor.persona_a_cargo }}
+                    <a href="{% url 'list_frutas' proveedor.id %}" class="btn btn-primary float-right">Ver Frutas</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Enlace a los archivos JavaScript de Bootstrap (jQuery y Popper.js son requeridos) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
